@@ -19,10 +19,10 @@
       color: #edf6ff;
       font-family: Manrope, sans-serif;
     }
-    main { padding: 24px; text-align: center; }
+    html.logout-authorized body { visibility: visible; }\n    main { padding: 24px; text-align: center; }
     h1 { margin: 0; font-size: clamp(36px, 8vw, 64px); font-weight: 700; letter-spacing: -.055em; }
   </style>
-</head>
+<script>(()=>{if(sessionStorage.getItem('sunface.logout')!=='pending'){location.replace('error.html?reason=authentication_required');return}sessionStorage.removeItem('sunface.logout');document.documentElement.classList.add('logout-authorized')})();</script>\n</head>
 <body>
   <main><h1>logged out</h1></main>
 </body>
