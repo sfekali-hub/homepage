@@ -1,12 +1,121 @@
 <!doctype html><html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#0080ff"><title>sunfacemusic.com</title><style>
-*{box-sizing:border-box}html,body{min-height:100%;margin:0}body{background:#0080ff;color:#fff;font-family:Arial,sans-serif}.panel{display:grid;grid-template-rows:auto 1fr auto;justify-items:center;min-height:100vh;min-height:100dvh;padding:max(12px,env(safe-area-inset-top)) 16px max(12px,env(safe-area-inset-bottom));text-align:center}
-.logo{display:block;width:87.5px;max-width:100%;height:31.25px;object-fit:contain;align-self:start}
-.panel>h1{align-self:start;margin:8px 0 16px;font-size:1.25rem}
+*{box-sizing:border-box}html,body{min-height:100%;margin:0}body{background:#0080ff;color:#fff;font-family:Arial,sans-serif}.panel{display:grid;grid-template-columns:minmax(0,1fr);grid-template-rows:auto auto 1fr auto;justify-items:center;min-height:100vh;min-height:100dvh;padding:max(12px,env(safe-area-inset-top)) 16px max(12px,env(safe-area-inset-bottom));text-align:center}
+.logo{display:block;width:109.375px;max-width:100%;height:39.0625px;object-fit:contain;align-self:start}
+.panel>h1{align-self:start;margin:8px 0 16px;font-size:1.125rem}
 .actions{display:flex;flex-wrap:wrap;justify-content:center;align-self:end;gap:12px}
 .actions>.link,.actions>button{display:grid;place-items:center;width:48px;height:48px;padding:0}
 button,.link{border:1px solid #8bc5ff;border-radius:8px;background:#006dcc;color:#fff;padding:13px 18px;font-weight:700;font-size:15px;text-decoration:none;cursor:pointer}button:hover,.link:hover{background:#fff;color:#0074e8}.google{background:#fff;color:#1768bd}.message{min-height:1.5em;font-size:14px;margin:14px 0 0}.message:empty{display:none}.small{font-size:13px;margin-top:20px;color:#e4f1ff}.small a{color:#fff}
-</style></head><body style="visibility:hidden"><main class="panel"><img class="logo" src="assets/sunfacemusic-logo.png" alt="SuNfAcEmusic"><h1>Willkommen</h1><div class="actions"><a class="link" href="http://www.sunfacemusic.com/" aria-label="Zur Startseite" title="Zur Startseite">
+.news{display:grid;gap:12px;align-self:start;width:min(100%,760px);min-width:0;text-align:left}
+.ticker{min-width:0;padding:10px 12px;border:1px solid #8bc5ff;border-radius:8px;background:#0055a5}
+.ticker-header{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.ticker h2{margin:0;font-size:.875rem}
+.ticker a{color:inherit}
+.ticker-pause{padding:4px 8px;font-size:.75rem;background:transparent}
+.ticker-window{overflow:hidden;margin-top:6px}
+.ticker-items{display:flex;gap:24px;width:max-content;padding:4px 24px 4px 4px;white-space:nowrap;font-size:.9375rem}
+.ticker-ready .ticker-items{animation:ticker-scroll var(--ticker-duration,45s) linear infinite}
+.ticker-window:hover .ticker-items{animation-play-state:paused}
+.ticker-paused .ticker-window,.ticker-window:has(a:focus-visible){overflow-x:auto}
+.ticker-paused .ticker-items,.ticker-window:has(a:focus-visible) .ticker-items{animation:none}
+@keyframes ticker-scroll{to{transform:translateX(-100%)}}
+@media(prefers-reduced-motion:reduce){
+  .ticker-ready .ticker-items{animation:none}
+  .ticker-window{overflow-x:auto}
+  .ticker-pause{display:none}
+}
+.actions{margin-top:16px}
+</style></head><body style="visibility:hidden"><main class="panel"><img class="logo" src="assets/sunfacemusic-logo.png" alt="SuNfAcEmusic"><h1>Willkommen</h1>
+<div class="news">
+  <section class="ticker" aria-label="ntv · Topmeldungen" data-feed="https://www.n-tv.de/rss">
+    <div class="ticker-header">
+      <h2><a href="https://www.n-tv.de/incoming/RSS-Feeds-von-n-tv-de-article10735026.html">ntv · Topmeldungen</a></h2>
+      <button type="button" class="ticker-pause" aria-label="ntv · Topmeldungen pausieren" aria-pressed="false" hidden>Pause</button>
+    </div>
+    <div class="ticker-window">
+      <div class="ticker-items"><span class="ticker-status" role="status">Meldungen werden geladen …</span></div>
+    </div>
+  </section>
+  <section class="ticker" aria-label="WELT · Aktuelle Nachrichten" data-feed="https://www.welt.de/feeds/latest.rss">
+    <div class="ticker-header">
+      <h2><a href="https://www.welt.de/services/rss/">WELT · Aktuelle Nachrichten</a></h2>
+      <button type="button" class="ticker-pause" aria-label="WELT · Aktuelle Nachrichten pausieren" aria-pressed="false" hidden>Pause</button>
+    </div>
+    <div class="ticker-window">
+      <div class="ticker-items"><span class="ticker-status" role="status">Meldungen werden geladen …</span></div>
+    </div>
+  </section>
+</div>
+<div class="actions"><a class="link" href="http://www.sunfacemusic.com/" aria-label="Zur Startseite" title="Zur Startseite">
   <svg aria-hidden="true" focusable="false" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 10 9-7 9 7M5 9v12h5v-6h4v6h5V9"/></svg>
 </a><button id="logout" aria-label="Abmelden" title="Abmelden">
   <svg aria-hidden="true" focusable="false" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h5m5-14 5 5-5 5m-7-5h12"/></svg>
-</button></div></main><script src="auth-config.js"></script><script src="https://cdn.auth0.com/js/auth0-spa-js/2.28.3/auth0-spa-js.production.js"></script><script>(async()=>{if(sessionStorage.getItem('sunface.authenticated')!=='true'){location.replace('error.html?reason=authentication_required');return}const c=window.SUNFACE_AUTH0_CONFIG,client=await window.auth0.createAuth0Client({domain:c.domain,clientId:c.clientId,authorizationParams:{redirect_uri:c.homeUrl},cacheLocation:'memory'});document.body.style.visibility='visible';document.getElementById('logout').addEventListener('click',()=>{sessionStorage.removeItem('sunface.authenticated');sessionStorage.setItem('sunface.logout','pending');client.logout({logoutParams:{returnTo:c.logoutUrl}})})})().catch(()=>location.replace('error.html?reason=authentication_required'));</script></body></html>
+</button></div></main><script src="auth-config.js"></script><script src="https://cdn.auth0.com/js/auth0-spa-js/2.28.3/auth0-spa-js.production.js"></script><script>
+async function fetchFeed(url, timeout) {
+  const response = await fetch(url, {
+    credentials: "omit",
+    referrerPolicy: "no-referrer",
+    signal: AbortSignal.timeout(timeout)
+  });
+  if (!response.ok) throw new Error("RSS-Abruf fehlgeschlagen");
+  return response;
+}
+
+function articleLinks(items) {
+  return items.flatMap(({title, link}) => {
+    if (typeof title !== "string" || !title.trim() || typeof link !== "string") return [];
+    const url = URL.parse(link.trim());
+    if (!url || !["https:", "http:"].includes(url.protocol) || url.username || url.password) return [];
+    url.protocol = "https:";
+    return [{title: title.trim(), url: url.href}];
+  }).slice(0, 10);
+}
+
+async function readHeadlines(feed) {
+  try {
+    const response = await fetchFeed(feed, 4000);
+    const xml = new DOMParser().parseFromString(await response.text(), "application/xml");
+    const items = Array.from(xml.querySelectorAll("channel > item"), item => ({
+      title: item.querySelector("title")?.textContent,
+      link: item.querySelector("link")?.textContent
+    }));
+    const headlines = articleLinks(items);
+    if (headlines.length) return headlines;
+  } catch {
+    // Some publishers do not allow cross-origin browser requests.
+  }
+
+  const relay = new URL("https://api.rss2json.com/v1/api.json");
+  relay.searchParams.set("rss_url", feed);
+  const response = await fetchFeed(relay, 8000);
+  const data = await response.json();
+  if (data.status !== "ok" || !Array.isArray(data.items)) throw new Error("Ungültige RSS-Antwort");
+  return articleLinks(data.items);
+}
+
+async function loadTicker(ticker) {
+  const status = ticker.querySelector(".ticker-status");
+  try {
+    const headlines = await readHeadlines(ticker.dataset.feed);
+    if (!headlines.length) throw new Error("Keine Meldungen verfügbar");
+
+    const items = ticker.querySelector(".ticker-items");
+    items.replaceChildren(...headlines.map(({title, url}) => {
+      const link = document.createElement("a");
+      link.href = url;
+      link.textContent = title;
+      return link;
+    }));
+
+    const pause = ticker.querySelector(".ticker-pause");
+    pause.addEventListener("click", () => {
+      const paused = ticker.classList.toggle("ticker-paused");
+      pause.setAttribute("aria-pressed", String(paused));
+    });
+    items.style.setProperty("--ticker-duration", Math.max(18, items.scrollWidth / 48) + "s");
+    ticker.classList.add("ticker-ready");
+    pause.hidden = false;
+  } catch {
+    status.textContent = "Meldungen derzeit nicht verfügbar.";
+  }
+}
+</script><script>(async()=>{if(sessionStorage.getItem('sunface.authenticated')!=='true'){location.replace('error.html?reason=authentication_required');return}const c=window.SUNFACE_AUTH0_CONFIG,client=await window.auth0.createAuth0Client({domain:c.domain,clientId:c.clientId,authorizationParams:{redirect_uri:c.homeUrl},cacheLocation:'memory'});document.body.style.visibility='visible';document.querySelectorAll('.ticker').forEach(loadTicker);document.getElementById('logout').addEventListener('click',()=>{sessionStorage.removeItem('sunface.authenticated');sessionStorage.setItem('sunface.logout','pending');client.logout({logoutParams:{returnTo:c.logoutUrl}})})})().catch(()=>location.replace('error.html?reason=authentication_required'));</script></body></html>
