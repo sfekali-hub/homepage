@@ -1,11 +1,11 @@
 <!doctype html><html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#0080ff"><title>sunfacemusic.com</title><style>
-*{box-sizing:border-box}html,body{min-height:100%;margin:0}body{background:#0080ff;color:#fff;font-family:Arial,sans-serif}.panel{--panel-gutter:16px;display:grid;grid-template-columns:minmax(0,1fr);grid-template-rows:auto auto 1fr auto;justify-items:center;min-height:100vh;min-height:100dvh;padding:max(12px,env(safe-area-inset-top)) var(--panel-gutter) max(12px,env(safe-area-inset-bottom));text-align:center}
+*{box-sizing:border-box}html,body{min-height:100%;margin:0}body{background:#0080ff;color:#fff;font-family:Arial,sans-serif}.panel{display:grid;grid-template-columns:minmax(0,1fr);grid-template-rows:auto auto 1fr auto;justify-items:center;min-height:100vh;min-height:100dvh;padding:max(12px,env(safe-area-inset-top)) 0 max(12px,env(safe-area-inset-bottom));text-align:center}
 .logo{display:block;width:109.375px;max-width:100%;height:39.0625px;object-fit:contain;align-self:start}
-.panel>h1{align-self:start;margin:8px 0 16px;font-size:1.125rem}
+.panel>h1{align-self:start;margin:8px 16px 16px;font-size:1.125rem}
 .actions{display:flex;flex-wrap:wrap;justify-content:center;align-self:end;gap:12px}
 .actions>.link,.actions>button{display:grid;place-items:center;width:48px;height:48px;padding:0}
 button,.link{border:1px solid #8bc5ff;border-radius:8px;background:#006dcc;color:#fff;padding:13px 18px;font-weight:700;font-size:15px;text-decoration:none;cursor:pointer}button:hover,.link:hover{background:#fff;color:#0074e8}.google{background:#fff;color:#1768bd}.message{min-height:1.5em;font-size:14px;margin:14px 0 0}.message:empty{display:none}.small{font-size:13px;margin-top:20px;color:#e4f1ff}.small a{color:#fff}
-.news{display:grid;gap:12px;align-self:start;justify-self:stretch;min-width:0;margin-inline:calc(-1 * var(--panel-gutter));text-align:left}
+.news{display:grid;gap:12px;align-self:start;justify-self:stretch;min-width:0;text-align:left}
 .ticker {
   display:grid;
   grid-template-columns:clamp(62px,12vw,88px) minmax(0,1fr);
@@ -47,7 +47,7 @@ button,.link{border:1px solid #8bc5ff;border-radius:8px;background:#006dcc;color
   .ticker-ready .ticker-items {animation:none}
   .ticker-window {overflow-x:auto}
 }
-.actions{margin-top:16px}
+.actions{margin:16px 16px 0}
 </style></head><body style="visibility:hidden"><main class="panel"><img class="logo" src="assets/sunfacemusic-logo.png" alt="SuNfAcEmusic"><h1>Willkommen</h1>
 <div class="news">
   <section class="ticker" aria-label="ntv · Topmeldungen" data-feed="https://www.n-tv.de/rss">
